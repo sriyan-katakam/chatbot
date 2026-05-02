@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEO Chatbot</title>
+  <link rel="stylesheet" href="STYLE.CSS">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="side-panel" aria-label="Chatbot controls">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="robot-photo.png" alt="">
+        </span>
+        <div>
+          <h1>NEO</h1>
+          <p>Private voice assistant</p>
+        </div>
+      </div>
+
+      <section class="settings-hub" aria-label="Settings control center">
+        <button id="settingsToggle" class="settings-title" type="button" aria-expanded="false" aria-controls="settingsContent">
+          <span class="settings-icon" aria-hidden="true">
+            <span></span>
+          </span>
+          <div>
+            <p class="eyebrow">Settings</p>
+            <h2>Control center</h2>
+          </div>
+          <span class="settings-chevron" aria-hidden="true">v</span>
+        </button>
+
+        <div id="settingsContent" class="settings-content" hidden>
+          <section class="control-group settings-card voice-box" aria-label="Voice settings">
+            <div>
+              <h2>Voice Settings</h2>
+              <p id="voiceStatus">Voice is ready if your browser supports it.</p>
+            </div>
+            <label class="toggle-row">
+              <span>Speak replies</span>
+              <input id="speakReplies" type="checkbox" checked>
+            </label>
+            <label class="field">
+              <span>Voice style</span>
+              <select id="voiceStyle" aria-label="Voice style">
+                <option value="neo" selected>NEO Deep</option>
+                <option value="warm">Warm</option>
+                <option value="bright">Bright</option>
+                <option value="calm">Calm</option>
+              </select>
+            </label>
+            <button id="stopSpeech" class="secondary-button" type="button">Stop speaking</button>
+          </section>
+
+          <section class="control-group settings-card memory-box" aria-label="Memory settings">
+            <div>
+              <h2>Memory Settings</h2>
+              <p id="memorySummary">Nothing saved yet.</p>
+            </div>
+            <label class="toggle-row memory-toggle">
+              <span>Use memory</span>
+              <input id="memoryEnabled" type="checkbox" checked>
+            </label>
+            <label class="field">
+              <span>Your name</span>
+              <input id="memoryName" type="text" autocomplete="name" placeholder="Sriyan">
+            </label>
+            <label class="field">
+              <span>Saved fact</span>
+              <input id="memoryFact" type="text" placeholder="Something NEO should remember">
+            </label>
+            <div class="settings-actions">
+              <button id="saveMemorySettings" class="secondary-button" type="button">Save memory</button>
+              <button id="forgetMemory" class="icon-button" type="button" aria-label="Forget saved memory" title="Forget saved memory">x</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="control-group" aria-label="Bot personality">
+        <h2>Personality</h2>
+        <div class="mode-grid" role="group" aria-label="Choose a chatbot personality">
+          <button class="mode-button active" type="button" data-tone="friendly">Friendly</button>
+          <button class="mode-button" type="button" data-tone="brief">Brief</button>
+          <button class="mode-button" type="button" data-tone="coach">Coach</button>
+        </div>
+      </section>
+
+      <section class="control-group" aria-label="Quick prompts">
+        <h2>Try These</h2>
+        <div class="quick-list">
+          <button class="quick-chip" type="button">What can you do?</button>
+          <button class="quick-chip" type="button">Tell me a study tip</button>
+          <button class="quick-chip" type="button">Make a todo list</button>
+          <button class="quick-chip" type="button">Calculate 24 * 18</button>
+          <button class="quick-chip" type="button">Remember my name is Sriyan</button>
+          <button class="quick-chip" type="button">What do you remember?</button>
+          <button class="quick-chip" type="button">What is my name?</button>
+          <button class="quick-chip" type="button">Tell me the time</button>
+          <button class="quick-chip" type="button">What is today's date?</button>
+          <button class="quick-chip" type="button">Motivate me</button>
+          <button class="quick-chip" type="button">Tell me a joke</button>
+          <button class="quick-chip" type="button">Summarize this I need to finish my homework, revise science, and practice math before dinner.</button>
+          <button class="quick-chip" type="button">Create checklist for school project</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="chat-panel" aria-label="Chatbot conversation">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">Local voice assistant</p>
+          <h2>Speak with NEO</h2>
+        </div>
+        <span id="statusBadge" class="status-badge">Offline</span>
+      </header>
+
+      <div id="messages" class="messages" aria-live="polite">
+        <article class="message bot">
+          <div class="avatar neo-avatar" aria-label="NEO robot profile photo">
+            <img src="robot-photo.png" alt="NEO robot">
+          </div>
+          <div class="bubble">&#128075; Hello there! I&rsquo;m glad you stopped by. How can I help you today?</div>
+        </article>
+      </div>
+
+      <form id="chatForm" class="composer">
+        <textarea id="userInput" rows="1" placeholder="Type your message..." aria-label="Message"></textarea>
+        <button id="voiceButton" class="voice-button" type="button" aria-label="Start voice input" title="Start voice input">&#127908;</button>
+        <button id="sendButton" type="submit" aria-label="Send message" title="Send message">&gt;</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="SCRIPT.JS"></script>
+</body>
+</html>
